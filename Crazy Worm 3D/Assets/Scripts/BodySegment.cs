@@ -6,7 +6,7 @@ public class BodySegment : MonoBehaviour
     private Vector3 currentPosition, previousPosition;
     private int delay;
     private Queue<Vector3> positionHistory = new Queue<Vector3>();
-    public Vector3 lastPositionSinceDelay;
+    public Vector3 lastPositionSinceDelay { get; private set; }
 
     private void Start()
     {

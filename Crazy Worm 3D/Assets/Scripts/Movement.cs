@@ -1,21 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
     public float moveSpeed, steerSpeed, jumpForce, groundDistance;
     public int startingLength, delay;
     public GameObject bodySegmentPrefab;
-    public LayerMask groundLayer;
+    public LayerMask groundLayerMask;
     public Transform groundCheckPoint;
+    public TextMeshProUGUI scoreText;
     private Rigidbody myRigidbody;
     private List<BodySegment> myBodySegments = new List<BodySegment>();
+    private int score = 1, highScore;
 
-
-    void Start()
+    private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         myBodySegments.Add(GetComponent<BodySegment>());
+        highScore = PlayerPrefs.GetInt("High Score");
 
         for (int i = 0; i < startingLength - 1; i++)
         {
@@ -29,19 +33,12 @@ public class Movement : MonoBehaviour
         {
             Jump();
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Grow();
-        }
     }
 
     private bool PlayerIsGrounded()
     {
-        // OnDrawGizmos();
-        return Physics.CheckSphere(groundCheckPoint.position, groundDistance, groundLayer);
+        return Physics.CheckSphere(groundCheckPoint.position, groundDistance, groundLayerMask);
     }
-
 
     private void FixedUpdate()
     {
@@ -75,9 +72,34 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void Grow()
+    public void Grow()
     {
+        IncreaseScore();
         GameObject instantiatedBodySegment = Instantiate(bodySegmentPrefab, transform.position, transform.rotation);
         myBodySegments.Add(instantiatedBodySegment.GetComponent<BodySegment>());
+    }
+
+    private void IncreaseScore()
+    {
+        score++;
+
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+
+        scoreText.text = $"Score: {score}\nHigh Score: {highScore}";
+    }
+
+    public void Die()
+    {
+        Debug.Log("You Died!");
+
+        if (highScore > PlayerPrefs.GetInt("High Score"))
+        { 
+            PlayerPrefs.SetInt("High Score", highScore);
+        }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
