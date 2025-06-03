@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     public LayerMask groundLayerMask;
     public Transform groundCheckPoint;
     public TextMeshProUGUI scoreText;
+    public List<BodySegment> myBodySegments { get; private set; } = new List<BodySegment>();
     private Rigidbody myRigidbody;
-    private List<BodySegment> myBodySegments = new List<BodySegment>();
     private int score = 1, highScore;
 
     private void Start()
@@ -58,6 +58,7 @@ public class Movement : MonoBehaviour
 
         Vector3 horizontalMovement = transform.forward * moveSpeed * Time.fixedDeltaTime;
         myRigidbody.MovePosition(transform.position + horizontalMovement);
+        transform.eulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
     }
 
     private void UpdateBodySegments()

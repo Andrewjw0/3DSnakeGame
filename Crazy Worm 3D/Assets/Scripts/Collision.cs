@@ -1,28 +1,35 @@
+using UnityEditor.TerrainTools;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    public LayerMask deathLayerMask, edibleLayerMask;
-    public float raycastLength;
+    public LayerMask deathLayerMask, edibleLayerMask, collidableLayerMask;
+    public Vector3 boxSize;
+    public Transform collisionCheckPoint;
     private Movement myMovement;
-    private int deathLayerInt, edibleLayerInt;
+    private EdibleSpawner myEdibleSpawner;
 
     private void Start()
     {
         myMovement = GetComponent<Movement>();
+        myEdibleSpawner = FindAnyObjectByType<EdibleSpawner>();
     }
 
-    private void OnCollisionEnter(UnityEngine.Collision collision)
+    private void FixedUpdate()
     {
-        if ((edibleLayerMask.value & (1 << collision.gameObject.layer)) > 0)
+        Collider[] hitColliders = Physics.OverlapBox(collisionCheckPoint.position, boxSize, transform.rotation, collidableLayerMask);
+
+        foreach (Collider collider in hitColliders)
         {
-            Destroy(collision.gameObject);
-            transform.eulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
-            myMovement.Grow();
-        }
-        if ((deathLayerMask.value & (1 << collision.gameObject.layer)) > 0)
-        {
-            myMovement.Die();
+            if ((edibleLayerMask.value & (1 << collider.gameObject.layer)) > 0)
+            {
+                myMovement.Grow();
+                myEdibleSpawner.ReplaceEdible(collider.gameObject);
+            }
+            if ((deathLayerMask.value & (1 << collider.gameObject.layer)) > 0)
+            {
+                myMovement.Die();
+            }
         }
     }
 }

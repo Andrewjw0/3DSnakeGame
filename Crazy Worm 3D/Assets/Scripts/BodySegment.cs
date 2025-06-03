@@ -11,12 +11,12 @@ public class BodySegment : MonoBehaviour
     private void Start()
     {
         currentPosition = transform.position;
-        lastPositionSinceDelay = transform.position;
         delay = FindAnyObjectByType<Movement>().delay;
+        lastPositionSinceDelay = transform.position;
 
         for (int i = 0; i < delay; i++)
         {
-            positionHistory.Enqueue(currentPosition);
+            positionHistory.Enqueue(lastPositionSinceDelay);
         }
     }
 
