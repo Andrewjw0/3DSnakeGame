@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 8611
+  controlID: 3244
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 8502
+  controlID: 3149
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 8503
+  controlID: 3150
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -244,9 +244,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6ce4ffff
-      m_LastClickedID: 0
-      m_ExpandedIDs: 66f9ffff4efbffffea3a0000f03a0000
+      m_SelectedIDs: faa6ffff
+      m_LastClickedID: -22790
+      m_ExpandedIDs: c0a7ffff66f9ffff18fbffff4efbffffea3a0000f03a00003ea90000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -263,7 +263,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 0}
+        m_ClientGUIView: {fileID: 5}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -877,9 +877,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1.4339532, y: -1.8546025, z: -5.6069703}
+    m_Target: {x: 8.844387, y: -7.0268984, z: -6.587799}
     speed: 2
-    m_Value: {x: 1.4339532, y: -1.8546025, z: -5.6069703}
+    m_Value: {x: 8.844387, y: -7.0268984, z: -6.587799}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -925,13 +925,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.016888488, y: -0.97830427, z: 0.18652266, w: 0.08857814}
+    m_Target: {x: 0.08121482, y: 0.89258915, z: -0.17851688, w: 0.4060438}
     speed: 2
-    m_Value: {x: -0.016888482, y: 0.9783037, z: -0.18652256, w: -0.08857808}
+    m_Value: {x: 0.07808103, y: 0.9023806, z: -0.18470238, w: 0.38144162}
   m_Size:
-    m_Target: 5.761621
+    m_Target: 12.124355
     speed: 2
-    m_Value: 5.761621
+    m_Value: 12.124355
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 8584
+  controlID: 3217
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -1128,7 +1128,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1138,16 +1138,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: E:\GitHub\3DSnakeGame\Crazy Worm 3D
+  m_LastProjectPath: E:\GitHub\3DSnakeGame\Super Worm 3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 42a90000
-    m_LastClickedID: 43330
-    m_ExpandedIDs: 0000000042a9000000ca9a3bffffff7f
+    m_SelectedIDs: 50ab0000
+    m_LastClickedID: 43856
+    m_ExpandedIDs: 00000000d6aa000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1176,7 +1176,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000042a9000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000d6aa000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1202,9 +1202,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6ce4ffff
-    m_LastClickedInstanceID: -7060
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: faa6ffff
+    m_LastClickedInstanceID: -22790
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1222,7 +1222,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 8612
+  controlID: 3245
   draggingID: 0
 --- !u!114 &16
 MonoBehaviour:

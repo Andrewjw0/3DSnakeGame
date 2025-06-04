@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Movement : MonoBehaviour
@@ -12,13 +11,15 @@ public class Movement : MonoBehaviour
     public Transform groundCheckPoint;
     public TextMeshProUGUI scoreText;
     public List<BodySegment> myBodySegments { get; private set; } = new List<BodySegment>();
-    private Rigidbody myRigidbody;
+    public Rigidbody myRigidbody { get; private set; }
     private int score = 1, highScore;
+    private Death myDeath;
 
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         myBodySegments.Add(GetComponent<BodySegment>());
+        myDeath = GetComponent<Death>();
         highScore = PlayerPrefs.GetInt("High Score");
 
         for (int i = 0; i < startingLength - 1; i++)
@@ -101,6 +102,6 @@ public class Movement : MonoBehaviour
             PlayerPrefs.SetInt("High Score", highScore);
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        myDeath.Die(); 
     }
 }
