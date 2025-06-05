@@ -221,8 +221,8 @@ Transform:
   m_GameObject: {fileID: 217814821}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -13}
-  m_LocalScale: {x: 25, y: 25, z: 1}
+  m_LocalPosition: {x: 0, y: -1, z: -20}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1667093557}
@@ -407,10 +407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9858b14f57a71984d9048ab330184963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: -12
-  maxX: 12
-  minY: -12
-  maxY: 12
+  minX: -9
+  maxX: 9
+  minY: -9
+  maxY: 9
   minDistance: 0.6
   apple: {fileID: 2441325046374686827, guid: 1443e13c6fd0a8949898e0944218fac2, type: 3}
   startingAmount: 3
@@ -439,7 +439,7 @@ Transform:
   m_GameObject: {fileID: 301678879}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 22, z: 0}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -999,12 +999,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c0860528ee43740a14269e8bbd525f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
-  steerSpeed: 360
-  jumpForce: 7
+  moveSpeed: 9
+  steerSpeed: 500
+  jumpForce: 10
   groundDistance: 0.5
   startingLength: 5
-  delay: 1
+  delay: 0
   bodySegmentPrefab: {fileID: 9057831661925240283, guid: 256b963c3d9b0e74ea19a05ebce0a1bf, type: 3}
   groundLayerMask:
     serializedVersion: 2
@@ -1087,15 +1087,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regularCameraTransform: {fileID: 330585546}
   deathCameraTransform: {fileID: 301678883}
-  curve:
+  positionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
-      tangentMode: 34
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -1104,15 +1128,17 @@ MonoBehaviour:
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 34
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  duration: 3
+  animationDuration: 2.5
+  retryButtonDelay: 0.5
   deathScreen: {fileID: 1949030925}
+  retryButton: {fileID: 913871702}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &913871703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1397,8 +1423,8 @@ Transform:
   m_GameObject: {fileID: 1014204739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 25, z: 25}
+  m_LocalPosition: {x: 20, y: -1, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1667093557}
@@ -1812,7 +1838,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 25, y: 1, z: 25}
+  m_LocalScale: {x: 20, y: 1, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1281076325}
@@ -2005,8 +2031,8 @@ Transform:
   m_GameObject: {fileID: 1947207268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 13}
-  m_LocalScale: {x: 25, y: 25, z: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 20}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1667093557}
@@ -2181,8 +2207,8 @@ Transform:
   m_GameObject: {fileID: 2041577450}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 25, z: 25}
+  m_LocalPosition: {x: -20, y: -1, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1667093557}

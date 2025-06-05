@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public Transform groundCheckPoint;
     public TextMeshProUGUI scoreText;
     public List<BodySegment> myBodySegments { get; private set; } = new List<BodySegment>();
-    public Rigidbody myRigidbody { get; private set; }
+    private Rigidbody myRigidbody;
     private int score = 1, highScore;
     private Death myDeath;
 
@@ -95,8 +95,6 @@ public class Movement : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("You Died!");
-
         if (highScore > PlayerPrefs.GetInt("High Score"))
         { 
             PlayerPrefs.SetInt("High Score", highScore);

@@ -5,26 +5,32 @@ using UnityEngine.SceneManagement;
 public class Death : MonoBehaviour
 {
     public Transform regularCameraTransform, deathCameraTransform;
-    public AnimationCurve curve;
-    public float duration;
-    public GameObject deathScreen;
+    public AnimationCurve positionCurve, rotationCurve;
+    public float animationDuration, retryButtonDelay;
+    public GameObject deathScreen, retryButton;
     private Movement myMovement;
+    private Rigidbody myRigidbody;
+    private Collision myCollision;
 
     private void Start()
     {
         myMovement = GetComponent<Movement>();
+        myRigidbody = GetComponent<Rigidbody>();
+        myCollision = GetComponent<Collision>();
     }
 
-/*    public void Die()
+    public void Die()
     {
         myMovement.enabled = false;
-        myMovement.myRigidbody.isKinematic = true;
+        myRigidbody.isKinematic = true;
+        myCollision.enabled = false;
         deathScreen.SetActive(true);
-        StartCoroutine(MoveToDeathCameraLocation(duration));
+        StartCoroutine(MoveToDeathCameraLocation(animationDuration));
     }
 
-    private IEnumerator MoveToDeathCameraLocation(float time)
+    private IEnumerator MoveToDeathCameraLocation(float duration)
     {
+        float time = 0;
         Vector3 startPos = regularCameraTransform.position;
         Vector3 endPos = deathCameraTransform.position;
         Quaternion startRot = regularCameraTransform.rotation;
@@ -32,17 +38,21 @@ public class Death : MonoBehaviour
 
         float start = Time.time;
 
-        while (Time.time < start + time)
+        while (time < duration)
         {
-            float completion = (Time.time - start) / time;
-            transform.position = Vector3.Lerp(startPos, endPos, curve.Evaluate(completion));
-            transform.rotation = Quaternion.Lerp(startRot, endRot, curve.Evaluate(completion));
+            float completion = time / duration;
+            regularCameraTransform.position = Vector3.Lerp(startPos, endPos, positionCurve.Evaluate(completion));
+            regularCameraTransform.rotation = Quaternion.Lerp(startRot, endRot, rotationCurve.Evaluate(completion));
+            time += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = endPos;
-        transform.rotation = endRot;
-    }*/
+        regularCameraTransform.position = endPos;
+        regularCameraTransform.rotation = endRot;
+
+        yield return new WaitForSeconds(retryButtonDelay);
+        retryButton.SetActive(true);
+    }
 
     public void RestartLevel()
     {
