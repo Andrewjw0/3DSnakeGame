@@ -7,12 +7,12 @@ public class Collision : MonoBehaviour
     public Vector3 boxSize;
     public Transform collisionCheckPoint;
     private Movement myMovement;
-    private EdibleSpawner myEdibleSpawner;
+    private Spawner mySpawner;
 
     private void Start()
     {
         myMovement = GetComponent<Movement>();
-        myEdibleSpawner = FindAnyObjectByType<EdibleSpawner>();
+        mySpawner = FindAnyObjectByType<Spawner>();
     }
 
     private void FixedUpdate()
@@ -24,7 +24,7 @@ public class Collision : MonoBehaviour
             if ((edibleLayerMask.value & (1 << collider.gameObject.layer)) > 0)
             {
                 myMovement.Grow();
-                myEdibleSpawner.ReplaceEdible(collider.gameObject);
+                mySpawner.ReplaceEdible(collider.gameObject);
             }
             if ((deathLayerMask.value & (1 << collider.gameObject.layer)) > 0)
             {
