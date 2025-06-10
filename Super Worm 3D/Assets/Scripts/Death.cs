@@ -6,8 +6,8 @@ public class Death : MonoBehaviour
 {
     public Transform regularCameraTransform, deathCameraTransform;
     public AnimationCurve positionCurve, rotationCurve;
-    public float animationDuration, retryButtonDelay;
-    public GameObject deathScreen, retryButton;
+    public float animationDuration, retryButtonDelay, cameraMoveDelay;
+    public GameObject deathScreen, deathButtons;
     private Movement myMovement;
     private Rigidbody myRigidbody;
     private Collision myCollision;
@@ -30,6 +30,8 @@ public class Death : MonoBehaviour
 
     private IEnumerator MoveToDeathCameraLocation(float duration)
     {
+        yield return new WaitForSeconds(cameraMoveDelay);
+
         float time = 0;
         Vector3 startPos = regularCameraTransform.position;
         Vector3 endPos = deathCameraTransform.position;
@@ -51,7 +53,7 @@ public class Death : MonoBehaviour
         regularCameraTransform.rotation = endRot;
 
         yield return new WaitForSeconds(retryButtonDelay);
-        retryButton.SetActive(true);
+        deathButtons.SetActive(true);
     }
 
     public void RestartLevel()

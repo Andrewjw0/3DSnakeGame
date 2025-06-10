@@ -79,7 +79,7 @@ public class Spawner : MonoBehaviour
         Vector3 randomLocation = new Vector3(Random.Range(minX, maxX), 0, Random.Range(minY, maxY));
         bool overlaps = false;
 
-        if ((myMovement.transform.forward - randomLocation).sqrMagnitude < sqrMinDistance)
+        if ((myMovement.transform.forward - randomLocation).sqrMagnitude < sqrMinDistance * 5)
         {
             overlaps = true;
             Debug.Log("Obstacle in front of player!");

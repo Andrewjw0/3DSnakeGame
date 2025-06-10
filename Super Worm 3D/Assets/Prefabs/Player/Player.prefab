@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 9
-  steerSpeed: 500
+  steerSpeed: 400
   jumpForce: 10
   groundDistance: 0.5
   startingLength: 5
@@ -201,7 +201,7 @@ MonoBehaviour:
   collidableLayerMask:
     serializedVersion: 2
     m_Bits: 384
-  boxSize: {x: 0.5, y: 0.5, z: 0.05}
+  boxSize: {x: 0.45, y: 0.45, z: 0.05}
   collisionCheckPoint: {fileID: 2614433191588199040}
 --- !u!114 &2791236486959914776
 MonoBehaviour:
@@ -267,8 +267,9 @@ MonoBehaviour:
     m_RotationOrder: 4
   animationDuration: 2.5
   retryButtonDelay: 0.5
+  cameraMoveDelay: 0.75
   deathScreen: {fileID: 0}
-  retryButton: {fileID: 0}
+  deathButtons: {fileID: 0}
 --- !u!1 &5753792912494242475
 GameObject:
   m_ObjectHideFlags: 0
