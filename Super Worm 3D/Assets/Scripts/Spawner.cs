@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.HableCurve;
 
 public class Spawner : MonoBehaviour
 {
     public float minX, maxX, minY, maxY, minDistance;
     public GameObject apple, spike;
     public int startingAmountOfApples, obstaclesToSpawnAfterConsuming;
+    public AudioClip eatingClip;
     public List<GameObject> prePlacedObstacles;
     private List<GameObject> spawnedEdibles = new List<GameObject>();
     private List<GameObject> spawnedObstacles;
@@ -133,6 +133,7 @@ public class Spawner : MonoBehaviour
 
     public void ReplaceEdible(GameObject edibleToReplace)
     {
+        SoundManager.instance.Play(eatingClip);
         spawnedEdibles.Remove(edibleToReplace);
         Destroy(edibleToReplace);
         SpawnEdible();

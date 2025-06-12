@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -14,13 +15,17 @@ public class Movement : MonoBehaviour
     private Rigidbody myRigidbody;
     private int score = 1, highScore;
     private Death myDeath;
+    private int currentLevel;
+    private SoundManager mySoundManager;
 
     private void Start()
     {
+        mySoundManager = FindAnyObjectByType<SoundManager>();
         myRigidbody = GetComponent<Rigidbody>();
         myBodySegments.Add(GetComponent<BodySegment>());
         myDeath = GetComponent<Death>();
-        highScore = PlayerPrefs.GetInt("High Score");
+        currentLevel = SceneManager.GetActiveScene().buildIndex - 1;
+        highScore = PlayerPrefs.GetInt($"High Score {currentLevel}");
 
         for (int i = 0; i < startingLength - 1; i++)
         {
@@ -95,9 +100,9 @@ public class Movement : MonoBehaviour
 
     public void Die()
     {
-        if (highScore > PlayerPrefs.GetInt("High Score"))
+        if (highScore > PlayerPrefs.GetInt($"High Score {currentLevel}"))
         { 
-            PlayerPrefs.SetInt("High Score", highScore);
+            PlayerPrefs.SetInt($"High Score {currentLevel}", highScore);
         }
 
         myDeath.Die(); 

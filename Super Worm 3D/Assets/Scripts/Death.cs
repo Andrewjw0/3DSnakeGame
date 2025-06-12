@@ -8,6 +8,7 @@ public class Death : MonoBehaviour
     public AnimationCurve positionCurve, rotationCurve;
     public float animationDuration, retryButtonDelay, cameraMoveDelay;
     public GameObject deathScreen, deathButtons;
+    public AudioClip deathClip;
     private Movement myMovement;
     private Rigidbody myRigidbody;
     private Collision myCollision;
@@ -21,14 +22,15 @@ public class Death : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.instance.Play(deathClip);
         myMovement.enabled = false;
         myRigidbody.isKinematic = true;
         myCollision.enabled = false;
         deathScreen.SetActive(true);
-        StartCoroutine(MoveToDeathCameraLocation(animationDuration));
+        StartCoroutine(MoveToDeathCameraLocation());
     }
 
-    private IEnumerator MoveToDeathCameraLocation(float duration)
+    private IEnumerator MoveToDeathCameraLocation()
     {
         yield return new WaitForSeconds(cameraMoveDelay);
 
@@ -40,9 +42,9 @@ public class Death : MonoBehaviour
 
         float start = Time.time;
 
-        while (time < duration)
+        while (time < animationDuration)
         {
-            float completion = time / duration;
+            float completion = time / animationDuration;
             regularCameraTransform.position = Vector3.Lerp(startPos, endPos, positionCurve.Evaluate(completion));
             regularCameraTransform.rotation = Quaternion.Lerp(startRot, endRot, rotationCurve.Evaluate(completion));
             time += Time.deltaTime;
@@ -59,5 +61,10 @@ public class Death : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadScene(int buildIndex)
+    {
+        SceneManager.LoadScene(buildIndex);
     }
 }

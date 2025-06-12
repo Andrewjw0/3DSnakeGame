@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 9
-  steerSpeed: 400
+  steerSpeed: 450
   jumpForce: 10
   groundDistance: 0.5
   startingLength: 5
@@ -270,6 +270,7 @@ MonoBehaviour:
   cameraMoveDelay: 0.75
   deathScreen: {fileID: 0}
   deathButtons: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 4ff86c20dc7600741993d6941aec77c7, type: 3}
 --- !u!1 &5753792912494242475
 GameObject:
   m_ObjectHideFlags: 0
