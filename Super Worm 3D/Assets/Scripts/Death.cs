@@ -8,7 +8,7 @@ public class Death : MonoBehaviour
     public AnimationCurve positionCurve, rotationCurve;
     public float animationDuration, retryButtonDelay, cameraMoveDelay;
     public GameObject deathScreen, deathButtons;
-    public AudioClip deathClip;
+    public AudioClip deathClip, loseClip;
     private Movement myMovement;
     private Rigidbody myRigidbody;
     private Collision myCollision;
@@ -33,6 +33,7 @@ public class Death : MonoBehaviour
     private IEnumerator MoveToDeathCameraLocation()
     {
         yield return new WaitForSeconds(cameraMoveDelay);
+        SoundManager.instance.Play(loseClip);
 
         float time = 0;
         Vector3 startPos = regularCameraTransform.position;

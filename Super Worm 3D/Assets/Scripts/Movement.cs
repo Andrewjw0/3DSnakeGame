@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public LayerMask groundLayerMask;
     public Transform groundCheckPoint;
     public TextMeshProUGUI scoreText;
+    public AudioClip jumpClip;
     public List<BodySegment> myBodySegments { get; private set; } = new List<BodySegment>();
     private Rigidbody myRigidbody;
     private int score = 1, highScore;
@@ -55,6 +56,7 @@ public class Movement : MonoBehaviour
     private void Jump()
     {
         myRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        SoundManager.instance.Play(jumpClip);
     }
 
     private void Move()
